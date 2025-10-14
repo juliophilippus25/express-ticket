@@ -2,11 +2,14 @@ import express, { type Express, type Request, type Response } from "express";
 import dotenv from "dotenv";
 import connectDB from "./utils/database";
 import adminRouter from "./routes/adminRoutes";
+import bodyParser from "body-parser";
 
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
+
+app.use(bodyParser.json());
 
 connectDB();
 
