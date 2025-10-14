@@ -82,3 +82,63 @@ export const updateGenre = async (req: Request, res: Response) => {
     });
   }
 };
+
+export const deleteGenre = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const genre = await Genre.findByIdAndDelete(id);
+
+    if (!genre) {
+      return res.status(404).json({
+        status: "error",
+        message: "Genre not found",
+        data: null,
+      });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "Genre deleted successfully",
+      data: {
+        genre,
+      },
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      status: "error",
+      message: error.message || "Internal server error",
+      data: null,
+    });
+  }
+};
+
+export const getGenreDetail = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const genre = await Genre.findById(id);
+
+    if (!genre) {
+      return res.status(404).json({
+        status: "error",
+        message: "Genre not found",
+        data: null,
+      });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "Genre retrieved successfully",
+      data: {
+        genre,
+      },
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      status: "error",
+      message: error.message || "Internal server error",
+      data: null,
+    });
+  }
+};
