@@ -1,6 +1,7 @@
 import express, { type Express, type Request, type Response } from "express";
 import dotenv from "dotenv";
 import connectDB from "./utils/database";
+import adminRouter from "./routes/adminRoutes";
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ connectDB();
 app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
+
+app.use("/api/admin", adminRouter);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
