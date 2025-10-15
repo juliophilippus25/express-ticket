@@ -1,5 +1,9 @@
 import express from "express";
-import { getMovies, createMovie } from "../../controllers/movieController";
+import {
+  getMovies,
+  createMovie,
+  updateMovie,
+} from "../../controllers/movieController";
 import multer from "multer";
 import { imageFilter, thumbnailStorage } from "../../utils/multer";
 
@@ -11,5 +15,6 @@ const upload = multer({
 
 movieRouter.get("/", getMovies);
 movieRouter.post("/", upload.single("thumbnail"), createMovie);
+movieRouter.put("/:id", upload.single("thumbnail"), updateMovie);
 
 export default movieRouter;
