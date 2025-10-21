@@ -7,11 +7,11 @@ import {
   getMovieDetail,
 } from "../../controllers/movieController";
 import multer from "multer";
-import { imageFilter, thumbnailStorage } from "../../utils/multer";
+import { imageFilter, storage } from "../../utils/multer";
 
 const movieRouter = express.Router();
 const upload = multer({
-  storage: thumbnailStorage(),
+  storage: storage("public/uploads/thumbnails"),
   fileFilter: imageFilter,
 });
 
