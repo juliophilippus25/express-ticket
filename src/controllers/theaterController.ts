@@ -9,9 +9,7 @@ export const getTheaters = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Theaters retrieved successfully",
-      data: {
-        theaters,
-      },
+      data: theaters,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -36,9 +34,7 @@ export const createTheater = async (req: Request, res: Response) => {
     res.status(201).json({
       status: "success",
       message: "Theater created successfully",
-      data: {
-        theater: createdTheater,
-      },
+      data: createdTheater,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -66,9 +62,7 @@ export const getTheaterDetail = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Theater retrieved successfully",
-      data: {
-        theater,
-      },
+      data: theater,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -102,9 +96,7 @@ export const updateTheater = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Theater updated successfully",
-      data: {
-        theater: updatedTheater,
-      },
+      data: updatedTheater,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -132,9 +124,7 @@ export const deleteTheater = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Theater deleted successfully",
-      data: {
-        theater,
-      },
+      data: theater,
     });
   } catch (error: any) {
     res.status(500).json({

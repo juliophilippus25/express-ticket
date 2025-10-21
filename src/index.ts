@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import connectDB from "./utils/database";
 import adminRouter from "./routes/adminRoutes";
 import bodyParser from "body-parser";
+import authRouter from "./routes/authRoutes";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Express + TypeScript Server");
 });
 
+app.use("/api/auth", authRouter);
 app.use("/api/admin", adminRouter);
 
 app.listen(port, () => {

@@ -21,9 +21,7 @@ export const getMovies = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Movies retrieved successfully",
-      data: {
-        movies,
-      },
+      data: movies,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -80,9 +78,7 @@ export const createMovie = async (req: Request, res: Response) => {
     res.status(201).json({
       status: "success",
       message: "Movie created successfully",
-      data: {
-        movie,
-      },
+      data: movie,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -184,9 +180,7 @@ export const updateMovie = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Movie updated successfully",
-      data: {
-        movie: updatedMovie,
-      },
+      data: updatedMovie,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -241,9 +235,7 @@ export const deleteMovie = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Movie deleted successfully",
-      data: {
-        movie,
-      },
+      data: movie,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -279,9 +271,7 @@ export const getMovieDetail = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Movie retrieved successfully",
-      data: {
-        movie,
-      },
+      data: movie,
     });
   } catch (error: any) {
     res.status(500).json({

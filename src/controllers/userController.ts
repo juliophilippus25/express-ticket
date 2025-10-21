@@ -10,9 +10,7 @@ export const getCustomers = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Customers retrieved successfully",
-      data: {
-        users,
-      },
+      data: users,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -37,9 +35,7 @@ export const getWalletTransactions = async (req: Request, res: Response) => {
     return res.status(200).json({
       status: "success",
       message: "Wallet transactions retrieved successfully",
-      data: {
-        transactions,
-      },
+      data: transactions,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -69,9 +65,7 @@ export const getTicketTransactions = async (req: Request, res: Response) => {
     return res.status(200).json({
       status: "success",
       message: "Ticket transactions retrieved successfully",
-      data: {
-        transaction,
-      },
+      data: transaction,
     });
   } catch (error: any) {
     res.status(500).json({

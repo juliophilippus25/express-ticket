@@ -35,9 +35,7 @@ export const createGenre = async (req: Request, res: Response) => {
     res.status(201).json({
       status: "success",
       message: "Genre created successfully",
-      data: {
-        genre: createdGenre,
-      },
+      data: createdGenre,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -70,9 +68,7 @@ export const updateGenre = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Genre updated successfully",
-      data: {
-        genre: updatedGenre,
-      },
+      data: updatedGenre,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -100,9 +96,7 @@ export const deleteGenre = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Genre deleted successfully",
-      data: {
-        genre,
-      },
+      data: genre,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -130,9 +124,7 @@ export const getGenreDetail = async (req: Request, res: Response) => {
     res.status(200).json({
       status: "success",
       message: "Genre retrieved successfully",
-      data: {
-        genre,
-      },
+      data: genre,
     });
   } catch (error: any) {
     res.status(500).json({
