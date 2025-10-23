@@ -4,6 +4,7 @@ import connectDB from "./utils/database";
 import adminRouter from "./routes/adminRoutes";
 import bodyParser from "body-parser";
 import authRouter from "./routes/authRoutes";
+import customerRouter from "./routes/customerRoutes";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/", (req: Request, res: Response) => {
 
 app.use("/api/auth", authRouter);
 app.use("/api/admin", adminRouter);
+app.use("/api/customer", customerRouter);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
