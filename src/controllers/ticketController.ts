@@ -61,6 +61,7 @@ export const transactionBookTicket = async (
       message: "Ticket transaction created successfully",
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",

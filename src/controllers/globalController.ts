@@ -20,6 +20,7 @@ export const getMovies = async (req: Request, res: Response) => {
       data: data,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -38,6 +39,7 @@ export const getGenres = async (req: Request, res: Response) => {
       data: data,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -98,7 +100,8 @@ export const getMovieDetail = async (req: Request, res: Response) => {
       },
     });
   } catch (error: any) {
-    return res.status(500).json({
+    console.log(error);
+    res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
       data: null,
@@ -132,7 +135,8 @@ export const getAvailableSeats = async (req: Request, res: Response) => {
       data: seats,
     });
   } catch (error: any) {
-    return res.status(500).json({
+    console.log(error);
+    res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
       data: null,
@@ -207,7 +211,8 @@ export const getMoviesFilter = async (req: Request, res: Response) => {
       },
     });
   } catch (error: any) {
-    return res.status(500).json({
+    console.log(error);
+    res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
       data: null,

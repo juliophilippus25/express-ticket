@@ -12,6 +12,7 @@ export const getTheaters = async (req: Request, res: Response) => {
       data: theaters,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -37,6 +38,7 @@ export const createTheater = async (req: Request, res: Response) => {
       data: createdTheater,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -65,6 +67,7 @@ export const getTheaterDetail = async (req: Request, res: Response) => {
       data: theater,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -99,6 +102,7 @@ export const updateTheater = async (req: Request, res: Response) => {
       data: updatedTheater,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -127,6 +131,7 @@ export const deleteTheater = async (req: Request, res: Response) => {
       data: theater,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",

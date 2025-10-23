@@ -13,6 +13,7 @@ export const getCustomers = async (req: Request, res: Response) => {
       data: users,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -38,6 +39,7 @@ export const getWalletTransactions = async (req: Request, res: Response) => {
       data: transactions,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -68,6 +70,7 @@ export const getTicketTransactions = async (req: Request, res: Response) => {
       data: transaction,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",

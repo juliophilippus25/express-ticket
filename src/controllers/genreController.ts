@@ -14,6 +14,7 @@ export const getGenres = async (req: Request, res: Response) => {
       },
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -38,6 +39,7 @@ export const createGenre = async (req: Request, res: Response) => {
       data: createdGenre,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -71,6 +73,7 @@ export const updateGenre = async (req: Request, res: Response) => {
       data: updatedGenre,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -99,6 +102,7 @@ export const deleteGenre = async (req: Request, res: Response) => {
       data: genre,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -127,6 +131,7 @@ export const getGenreDetail = async (req: Request, res: Response) => {
       data: genre,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",

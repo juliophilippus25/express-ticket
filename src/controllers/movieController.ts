@@ -24,6 +24,7 @@ export const getMovies = async (req: Request, res: Response) => {
       data: movies,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -81,6 +82,7 @@ export const createMovie = async (req: Request, res: Response) => {
       data: movie,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -183,6 +185,7 @@ export const updateMovie = async (req: Request, res: Response) => {
       data: updatedMovie,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -238,6 +241,7 @@ export const deleteMovie = async (req: Request, res: Response) => {
       data: movie,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -274,6 +278,7 @@ export const getMovieDetail = async (req: Request, res: Response) => {
       data: movie,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",

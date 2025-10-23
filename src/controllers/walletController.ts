@@ -16,6 +16,7 @@ export const getBalance = async (req: CustomRequest, res: Response) => {
       },
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -40,6 +41,7 @@ export const getTopUpHistory = async (req: CustomRequest, res: Response) => {
       data: data,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
@@ -98,6 +100,7 @@ export const topUpBalance = async (req: CustomRequest, res: Response) => {
       data: midtransJson,
     });
   } catch (error: any) {
+    console.log(error);
     res.status(500).json({
       status: "error",
       message: error.message || "Internal server error",
