@@ -8,7 +8,11 @@ import {
 } from "../../controllers/globalController";
 import { validateRequest } from "../../middlewares/validateRequest";
 import { transactionSchema } from "../../utils/zodSchema";
-import { transactionBookTicket } from "../../controllers/ticketController";
+import {
+  getOrderDetail,
+  getOrders,
+  transactionBookTicket,
+} from "../../controllers/ticketController";
 
 const globalRouter = express.Router();
 
@@ -22,5 +26,7 @@ globalRouter.post(
   validateRequest(transactionSchema),
   transactionBookTicket
 );
+globalRouter.get("/orders", getOrders);
+globalRouter.get("/orders/:id", getOrderDetail);
 
 export default globalRouter;

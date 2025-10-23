@@ -4,6 +4,7 @@ import { transactionSchema } from "../utils/zodSchema";
 import Wallet from "../models/Wallet";
 import Transaction from "../models/Transaction";
 import TransactionSeat from "../models/TransactionSeat";
+import path from "path";
 
 export const transactionBookTicket = async (
   req: CustomRequest,
@@ -59,6 +60,80 @@ export const transactionBookTicket = async (
     return res.status(200).json({
       status: "success",
       message: "Ticket transaction created successfully",
+    });
+  } catch (error: any) {
+    console.log(error);
+    res.status(500).json({
+      status: "error",
+      message: error.message || "Internal server error",
+      data: null,
+    });
+  }
+};
+
+export const getOrders = async (req: CustomRequest, res: Response) => {
+  try {
+    const transactions = await Transaction.find({
+      user: req.user?.id,
+    })
+      .populate({
+        path: "movie",
+        select: "title thumbnail genre -_id",
+        populate: {
+          path: "genre",
+          select: "name -_id",
+        },
+      })
+      .populate({
+        path: "seats",
+        select: "seat -_id",
+      })
+      .populate({
+        path: "theater",
+        select: "name city -_id",
+      });
+
+    return res.status(200).json({
+      status: "success",
+      message: "Orders retrieved successfully",
+      data: transactions,
+    });
+  } catch (error: any) {
+    console.log(error);
+    res.status(500).json({
+      status: "error",
+      message: error.message || "Internal server error",
+      data: null,
+    });
+  }
+};
+
+export const getOrderDetail = async (req: CustomRequest, res: Response) => {
+  try {
+    const { id } = req.params;
+
+    const transactions = await Transaction.findById(id)
+      .populate({
+        path: "movie",
+        select: "title thumbnail genre -_id",
+        populate: {
+          path: "genre",
+          select: "name -_id",
+        },
+      })
+      .populate({
+        path: "seats",
+        select: "seat -_id",
+      })
+      .populate({
+        path: "theater",
+        select: "name city -_id",
+      });
+
+    return res.status(200).json({
+      status: "success",
+      message: "Order retrieved successfully",
+      data: transactions,
     });
   } catch (error: any) {
     console.log(error);
