@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const transactionSchema = new mongoose.Schema(
   {
-    subtotal: {
+    subTotal: {
       type: Number,
       required: true,
       default: 0,

@@ -1,4 +1,4 @@
-import z from "zod";
+import z, { date } from "zod";
 
 export const allowedFileTypes = ["image/jpeg", "image/png", "image/jpg"];
 
@@ -35,3 +35,16 @@ export const authSchema = z.object({
 });
 
 export const topUpSchema = z.object({ amount: z.number().min(1000) });
+
+export const transactionSchema = z
+  .object({
+    subTotal: z.number(),
+    grandTotal: z.number(),
+    bookingFee: z.number(),
+    bookingDate: z.string(),
+    tax: z.number(),
+    movieId: z.string(),
+    theaterId: z.string(),
+    seats: z.array(z.string()),
+  })
+  .strict();
