@@ -55,7 +55,7 @@ export const login = async (req: Request, res: Response) => {
         name: checkUser.name,
         email: checkUser.email,
         role: checkUser.role,
-        photo: checkUser.photo,
+        photoUrl: checkUser.photoUrl,
         token,
       },
     });
